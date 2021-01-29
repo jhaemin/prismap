@@ -1,6 +1,6 @@
 {
   "name": "prismap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "It maps table and attribute names to PascalCase and camelCase with pluralizations.",
   "main": "bin/index.js",
   "bin": {
