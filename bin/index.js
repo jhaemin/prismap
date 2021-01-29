@@ -1,26 +1,30 @@
 #!/usr/bin/env node
 
-const appRoot = require('app-root-path')
 const yargs = require('yargs')
 const fs = require('fs')
 const pluralize = require('pluralize')
 const { formatSchema } = require('@prisma/sdk')
 const { pascalCase, camelCase } = require('change-case')
+const path = require('path')
 
-const options = yargs.option("schema", {
+const runningDir = process.cwd()
+
+const options = yargs.option('schema', {
   describe: 'Prisma schema path.',
   type: 'string',
   demandOption: false,
 }).argv
 
-const prismaSchemaPath = options.schema ? appRoot.resolve(options.schema) : appRoot.resolve('prisma/schema.prisma')
+const prismaSchemaPath = options.schema
+  ? path.resolve(runningDir, options.schema)
+  : path.resolve(runningDir, 'prisma/schema.prisma')
 
 let prismaSchema = ''
 
 try {
   prismaSchema = fs.readFileSync(prismaSchemaPath, {
     encoding: 'utf8',
-  })  
+  })
 } catch (error) {
   console.log(`Could not find schema file at given path '${prismaSchemaPath}'.`)
   process.exit()
