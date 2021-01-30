@@ -1,6 +1,6 @@
 # Prismap
 
-Prismap, which stands for Prisma Map and Pluralize, automatically maps and pluralizes Prisma schema to match traditional/conventional names with JavaScript/TypeScript naming conventions.
+Prismap, which stands for Prisma Map and Pluralize, automatically maps and pluralizes Prisma schema to match conventional database names with JavaScript/TypeScript naming conventions.
 
 ## Key Feautres
 
@@ -26,7 +26,7 @@ model community_post {
 }
 ```
 
-will be converted to
+converts to
 
 ```prisma
 model User {
@@ -46,6 +46,47 @@ model CommunityPost {
 
   @@map(name: "community_post")
 }
+```
+
+**PascalCase table names**
+
+```diff
+- model User {
+-   ...
+- }
++ model user {
++   ...
++   @@map(name: "user")
++ }
+```
+
+```diff
+- model community_post {
+-   ...
+- }
++ model CommunityPost {
++   ...
++   @@map(name: "community_post")
++ }
+```
+
+**camelCase attribute names**
+
+```diff
+- joined_at DateTime
++ joinedAt  DateTime @map(name: "joined_at")
+```
+
+```diff
+- user_id Int
++ userId  Int @map(name: "user_id")
+```
+
+**Pluralize relations**
+
+```diff
+- community_post community_post[]
++ communityPosts CommunityPost[]
 ```
 
 ## Installation
