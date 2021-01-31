@@ -1,6 +1,6 @@
 {
   "name": "prismap",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Prismap automatically maps and pluralizes Prisma schema.",
   "main": "bin/index.js",
   "bin": {

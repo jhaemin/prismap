@@ -44,7 +44,7 @@ const enumProcessedSchema = prismaSchema.replace(enumScopeRegExp, (en) => {
 
   enums.push(enumName)
 
-  const enumMap = `@@map(name: "${enumName}")`
+  const enumMap = `@@map("${enumName}")`
 
   // Insert empty line after properties if needed
   if (!lines[lines.length - 2].trim().startsWith('@')) {
@@ -66,7 +66,7 @@ const modelProcessedSchema = enumProcessedSchema.replace(
     const firstLine = lines[0]
     const modelName = /^model ([a-zA-Z_]*?) {/g.exec(firstLine)[1]
     const pascalModelName = pascalCase(modelName)
-    const modelMap = `@@map(name: "${modelName}")`
+    const modelMap = `@@map("${modelName}")`
 
     // Not pascal-cased model
     if (modelName !== pascalModelName) {
@@ -137,7 +137,7 @@ const modelProcessedSchema = enumProcessedSchema.replace(
             }
           }
 
-          return camel + rest + (camel !== prop ? ` @map(name: "${prop}")` : '')
+          return camel + rest + (camel !== prop ? ` @map("${prop}")` : '')
         })
       }
 
