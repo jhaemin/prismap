@@ -2,6 +2,8 @@
 
 Prismap, which stands for Prisma Map and Pluralize, automatically maps and pluralizes Prisma schema to match conventional database names with JavaScript/TypeScript naming conventions.
 
+> Currently it doesn't support enum. If your Prisma schema contains enums, the result would be broken.
+
 ## Key Feautres
 
 * Map table names to PascalCase.
