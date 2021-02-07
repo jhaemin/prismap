@@ -109,4 +109,4 @@ prismap
 
 **`--schema`**
 
-Specify the Prisma schema path. Prismap finds `prisma/schema.prisma` in default.
+Specify the Prisma schema path. Prismap finds `prisma/schema.prisma` by default.
