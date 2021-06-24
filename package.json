@@ -9,7 +9,7 @@
   "author": "Jang Haemin",
   "license": "MIT",
   "dependencies": {
-    "@prisma/sdk": "^2.21.0",
+    "@prisma/sdk": "^2.25.0",
     "change-case": "^4.1.2",
     "pluralize": "^8.0.0",
     "yargs": "^16.2.0"
