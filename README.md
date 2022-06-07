@@ -105,8 +105,8 @@ Inside your project directory, run
 prismap
 ```
 
-### Options
+## Options
 
-**`--schema`**
+### `--schema`
 
 Specify the Prisma schema path. Prismap finds `prisma/schema.prisma` by default.
